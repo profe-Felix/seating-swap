@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seating Picture Swapper — Autoload</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Seating Picture Swapper</h1>
+    <p class="sub">Autoload version for GitHub Pages or any static host</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="control">
+        <label class="label">Manual fallback: Load Student Pics</label>
+        <input id="picsInput" type="file" accept=".jpg,.jpeg,.png" multiple />
+        <small>Autoload tries URLs first. This manual option overrides.</small>
+      </div>
+
+      <div class="control">
+        <label class="label">Manual fallback: Load Groups .txt</label>
+        <input id="groupsInput" type="file" accept=".txt" />
+        <small>Autoload tries <code>?group=</code> URL or default. This overrides.</small>
+      </div>
+
+      <div class="buttons">
+        <button id="fillBtn">Render / Re-render</button>
+        <button id="clearBtn" class="secondary">Clear</button>
+        <button id="exportBtn" class="accent" disabled>Export Updated Groups .txt</button>
+      </div>
+    </section>
+
+    <section>
+      <div id="status" class="status">Autoloading… (you can also use the manual pickers)</div>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <details open>
+      <summary>Hosting & URL parameters</summary>
+      <ul>
+        <li>Place your groups file in <code>/groups/</code> (default: <code>groups/Class1.txt</code>).</li>
+        <li>Place your images in <code>/pics/</code> (default folder). File base names must match names in the txt.</li>
+        <li>Supported extensions (priority): <b>.jpg</b> → <b>.jpeg</b> → <b>.png</b>.</li>
+        <li>You can override defaults via query params:
+          <ul>
+            <li><code>?group=groups/MyClass.txt</code></li>
+            <li><code>?pics=pics</code> (or any folder name)</li>
+          </ul>
+        </li>
+      </ul>
+    </details>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
