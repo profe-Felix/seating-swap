@@ -1,30 +1,23 @@
-Autoload version — host on GitHub Pages or any static server
-=================================================================
+Seating Swapper — Complete Package
+==================================
 
-Folder layout (recommended):
-  /index.html
-  /style.css
-  /script.js
-  /groups/Class1.txt
-  /pics/  (images here; base name matches name in txt)
+Open index.html and it will autoload:
+  - groups/Class1.txt
+  - pics/ (your student images; add them here)
+  - layout/class1Tables.json (96x96 px squares)
 
-How it works:
-- On page load, it tries to fetch the groups file and images by URL.
-- Defaults:
-  - group=groups/Class1.txt
-  - pics=pics
-- You can override via URL params:
-  - ?group=groups/MyClass.txt
-  - ?pics=picsFolderName
+URL parameters (optional):
+  ?group=groups/Class1.txt&pics=pics&layout=layout/class1Tables.json
 
-Examples:
-- https://<your-user>.github.io/<repo>/?group=groups/Class2.txt
-- https://<your-user>.github.io/<repo>/?group=groups/ClassA.txt&pics=Student%20Pics
+Layouts included:
+  layout/class1Tables.json
+  layout/carpet.json
+  layout/tables.json
+  layout/group_time.json
 
-Notes:
-- If you use a folder name with spaces (e.g., "Student Pics"), URL-encode it:
-  - pics=Student%20Pics
-- Image match priority per name: .jpg → .jpeg → .png
-- The app uses HEAD to check which image exists before using it.
-- For private repos, GitHub Pages must be enabled (public), or host elsewhere with proper CORS.
-- Manual file pickers remain available as a fallback/override.
+How to use:
+1) Put your student images in the /pics folder. Filenames should be student names (base name) like "Maria.jpg".
+2) Edit groups/Class1.txt with either student names OR slot IDs to force placement.
+3) Open index.html (or deploy this folder to GitHub Pages).
+4) Toggle "Edit layout" to drag/resize/rotate seats; then "Export Layout JSON" to save.
+5) Click any two seats to swap; then "Export Updated Groups .txt".
